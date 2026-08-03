@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Pour toi mon bébé Esther ❤️</title>
+
+  <!-- Polices élégantes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Cormorant Garamond", serif;
+      background:
+        radial-gradient(
+          circle at top,
+          #fff8f8 0%,
+          #ffffff 45%,
+          #f8eeee 100%
+        );
+      color: #5b1020;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       MUSIQUE
+    ========================= */
+
+    .music-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: #7f1830;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow:
+        0 8px 20px
+        rgba(91, 16, 32, 0.25);
+      transition: 0.3s;
+    }
+
+    .music-button:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       COEURS DE FOND
+    ========================= */
+
+    .background-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: rgba(128, 24, 48, 0.15);
+      animation:
+        floatHeart linear infinite;
+    }
+
+    @keyframes floatHeart {
+
+      0% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        transform:
+          translateY(-110vh)
+          rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+    /* =========================
+       PAGES
+    ========================= */
+
+    .page {
+      min-height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page.active {
+      display: flex;
+      animation:
+        pageIn 0.8s ease forwards;
+    }
+
+    @keyframes pageIn {
+
+      from {
+        opacity: 0;
+        transform:
+          translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0);
+      }
+
+    }
+
+    .content {
+      width: 100%;
+      max-width: 650px;
+      text-align: center;
+    }
+
+    /* =========================
+       TITRE
+    ========================= */
+
+    .title {
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        clamp(42px, 10vw, 78px);
+
+      color: #7f1830;
+
+      margin-bottom: 35px;
+
+      text-shadow:
+        0 3px 15px
+        rgba(127, 24, 48, 0.15);
+    }
+
+    /* =========================
+       LETTRE
+    ========================= */
+
+    .letter-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .letter {
+      width:
+        min(360px, 85vw);
+
+      height: 250px;
+
+      position: relative;
+
+      cursor: pointer;
+
+      animation:
+        floatingLetter
+        3s ease-in-out infinite;
+
+      filter:
+        drop-shadow(
+          0 20px 25px
+          rgba(91, 16, 32, 0.18)
+        );
+    }
+
+    @keyframes floatingLetter {
+
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(-1deg);
+      }
+
+      50% {
+        transform:
+          translateY(-15px)
+          rotate(1deg);
+      }
+
+    }
+
+    .envelope {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      border:
+        2px solid #e6c9cf;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          145deg,
+          transparent 49%,
+          #e9cbd1 50%,
+          transparent 51%
+        );
+    }
+
+    .envelope::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          215deg,
+          transparent 49%,
+          #e9cbd1 50%,
+          transparent 51%
+        );
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 130px;
+
+      background: #fffafa;
+
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          50% 100%
+        );
+
+      z-index: 3;
+
+      border-bottom:
+        1px solid #e8ccd2;
+    }
+
+    .seal {
+      position: absolute;
+
+      left: 50%;
+      top: 105px;
+
+      transform:
+        translateX(-50%);
+
+      width: 55px;
+      height: 55px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #8f1d39,
+          #5b1020
+        );
+
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 25px;
+
+      z-index: 5;
+
+      box-shadow:
+        0 5px 15px
+        rgba(91, 16, 32, 0.3);
+    }
+
+    .touch {
+      margin-top: 35px;
+
+      font-size: 25px;
+
+      font-weight: 600;
+
+      color: #7f1830;
+
+      animation:
+        pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+    }
+
+    /* =========================
+       CARTES
+    ========================= */
+
+    .card {
+      background:
+        rgba(255, 255, 255, 0.94);
+
+      border:
+        1px solid #ead1d6;
+
+      border-radius: 25px;
+
+      padding:
+        45px 30px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(91, 16, 32, 0.12);
+
+      backdrop-filter:
+        blur(10px);
+    }
+
+    .card h2 {
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size: 48px;
+
+      color: #7f1830;
+
+      margin-bottom: 25px;
+    }
+
+    .card p {
+      font-size: 21px;
+
+      line-height: 1.7;
+
+      color: #59343c;
+    }
+
+    .heart-big {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       BOUTONS
+    ========================= */
+
+    .buttons {
+      display: flex;
+
+      gap: 15px;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      margin-top: 35px;
+    }
+
+    button {
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 20px;
+
+      font-weight: 600;
+
+      padding:
+        14px 30px;
+
+      border-radius: 50px;
+
+      cursor: pointer;
+
+      transition:
+        all 0.3s ease;
+    }
+
+    .primary {
+      background:
+        linear-gradient(
+          135deg,
+          #8f1d39,
+          #5b1020
+        );
+
+      color: white;
+
+      border: none;
+
+      box-shadow:
+        0 10px 25px
+        rgba(91, 16, 32, 0.2);
+    }
+
+    .primary:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 15px 30px
+        rgba(91, 16, 32, 0.3);
+    }
+
+    .secondary {
+      background: white;
+
+      color: #7f1830;
+
+      border:
+        2px solid #8f1d39;
+    }
+
+    .secondary:hover {
+      background:
+        #fff5f7;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .gentle-message {
+      display: none;
+
+      margin-top: 25px;
+
+      padding: 18px;
+
+      background:
+        #fff5f7;
+
+      border-radius: 15px;
+
+      color: #7f1830;
+
+      font-size: 18px;
+
+      line-height: 1.5;
+    }
+
+    /* =========================
+       JOURS
+    ========================= */
+
+    .days {
+      display: flex;
+
+      gap: 15px;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      margin-top: 30px;
+    }
+
+    .day {
+      min-width: 100px;
+    }
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .final-message {
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        clamp(45px, 10vw, 75px);
+
+      color: #7f1830;
+
+      margin-bottom: 25px;
+    }
+
+    .final-text {
+      font-size: 23px;
+
+      line-height: 1.7;
+
+      color: #59343c;
+    }
+
+    .signature {
+      margin-top: 30px;
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size: 40px;
+
+      color: #8f1d39;
+    }
+
+    .love-animation {
+      font-size: 45px;
+
+      margin-bottom: 25px;
+
+      animation:
+        heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+    }
+
+    @media (max-width: 500px) {
+
+      .card {
+        padding:
+          35px 20px;
+      }
+
+      .card h2 {
+        font-size: 40px;
+      }
+
+      .card p {
+        font-size: 19px;
+      }
+
+      .letter {
+        height: 220px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MUSIQUE
+========================= -->
+
+<audio
+  id="loveSong"
+  preload="auto"
+  loop>
+
+  <source
+    src="musique.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- BOUTON SON -->
+
+<button
+  class="music-button"
+  id="musicButton"
+  onclick="toggleMusic()">
+
+  🔇
+
+</button>
+
+
+<!-- COEURS -->
+
+<div
+  class="background-hearts"
+  id="hearts">
+</div>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section
+  class="page active"
+  id="page1">
+
+  <div class="content">
+
+    <h1 class="title">
+
+      Pour toi mon bébé Esther
+
+    </h1>
+
+
+    <div class="letter-wrapper">
+
+
+      <div
+        class="letter"
+        onclick="openLetter()">
+
+
+        <div
+          class="envelope">
+        </div>
+
+
+        <div
+          class="flap">
+        </div>
+
+
+        <div
+          class="seal">
+
+          ❤️
+
+        </div>
+
+
+      </div>
+
+
+      <div class="touch">
+
+        Touche ici 👆🏼
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section
+  class="page"
+  id="page2">
+
+  <div class="content">
+
+    <div class="card">
+
+
+      <div class="heart-big">
+
+        ❤️
+
+      </div>
+
+
+      <h2>
+
+        Mon bébé Esther
+
+      </h2>
+
+
+      <p>
+
+        Je voulais prendre un moment
+        pour te présenter mes sincères
+        excuses pour mon comportement
+        et pour toutes les fois où j'ai
+        pu te faire du mal ou te décevoir.
+
+        <br><br>
+
+        Je regrette sincèrement mes erreurs.
+
+        <br><br>
+
+        Tu comptes énormément pour moi
+        et je veux apprendre de mes erreurs
+        pour devenir une meilleure personne
+        à tes côtés.
+
+        <br><br>
+
+        Je veux être là pour toi, dans les
+        bons comme dans les mauvais moments,
+        et continuer à avancer à tes côtés
+        aussi longtemps que la vie nous
+        le permettra.
+
+        <br><br>
+
+        Je tiens profondément à toi. ❤️
+
+      </p>
+
+
+      <div class="buttons">
+
+
+        <button
+          class="primary"
+          onclick="forgive()">
+
+          Je te pardonne ❤️
+
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="notForgive()">
+
+          Je ne pardonne pas
+
+        </button>
+
+
+      </div>
+
+
+      <div
+        class="gentle-message"
+        id="forgiveMessage">
+
+        Je comprends que tu puisses avoir
+        besoin de temps. ❤️
+
+        <br><br>
+
+        Prends ton temps.
+        Je serai là quand tu seras prête.
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="forgive()">
+
+          Je veux te pardonner ❤️
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section
+  class="page"
+  id="page3">
+
+  <div class="content">
+
+    <div class="card">
+
+
+      <div class="heart-big">
+
+        🥰
+
+      </div>
+
+
+      <h2>
+
+        Une journée rien que pour nous
+
+      </h2>
+
+
+      <p>
+
+        Maintenant que nous avons parlé,
+        j'aimerais te proposer une petite
+        journée chill en amoureux.
+
+        <br><br>
+
+        Juste toi et moi.
+
+        <br>
+
+        Sans stress.
+
+        <br>
+
+        Des rires, des discussions,
+        de beaux souvenirs et beaucoup
+        de moments ensemble. ❤️
+
+        <br><br>
+
+        Est-ce que tu accepterais ?
+
+      </p>
+
+
+      <div class="buttons">
+
+
+        <button
+          class="primary"
+          onclick="acceptDate()">
+
+          Oui, avec plaisir ❤️
+
+        </button>
+
+
+        <button
+          class="secondary"
+          onclick="declineDate()">
+
+          Pas cette fois
+
+        </button>
+
+
+      </div>
+
+
+      <div
+        class="gentle-message"
+        id="dateMessage">
+
+        Je comprends. ❤️
+
+        <br><br>
+
+        Si tu changes d'avis,
+        la proposition restera là
+        pour toi.
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="acceptDate()">
+
+          Finalement, oui ❤️
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section
+  class="page"
+  id="page4">
+
+  <div class="content">
+
+    <div class="card">
+
+
+      <div class="heart-big">
+
+        📅❤️
+
+      </div>
+
+
+      <h2>
+
+        Choisissons notre journée
+
+      </h2>
+
+
+      <p>
+
+        Quel jour aimerais-tu passer
+        cette journée chill avec moi ?
+
+      </p>
+
+
+      <div class="days">
+
+
+        <button
+          class="primary day"
+          onclick="chooseDay('mardi')">
+
+          Mardi
+
+        </button>
+
+
+        <button
+          class="primary day"
+          onclick="chooseDay('mercredi')">
+
+          Mercredi
+
+        </button>
+
+
+        <button
+          class="primary day"
+          onclick="chooseDay('jeudi')">
+
+          Jeudi
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<section
+  class="page"
+  id="page5">
+
+  <div class="content">
+
+    <div class="card">
+
+
+      <div class="love-animation">
+
+        ❤️
+
+      </div>
+
+
+      <div class="final-message">
+
+        Merci mon bébé
+
+      </div>
+
+
+      <p class="final-text">
+
+        Merci d'avoir pris le temps
+        de lire tous ces mots.
+
+        <br><br>
+
+        Merci pour ta présence,
+        pour tous les souvenirs que
+        nous partageons et pour la place
+        que tu occupes dans ma vie.
+
+        <br><br>
+
+        Peu importe les moments que
+        nous traverserons, sache que
+        tu auras toujours une place
+        particulière dans mon cœur.
+
+        <br><br>
+
+        Je t'aimerai toujours. ❤️
+
+      </p>
+
+
+      <div class="signature">
+
+        Avec tout mon amour ❤️
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+const song =
+  document.getElementById(
+    "loveSong"
+  );
+
+
+const musicButton =
+  document.getElementById(
+    "musicButton"
+  );
+
+
+let musicPlaying =
+  false;
+
+
+/* =========================
+   OUVRIR LA LETTRE
+========================= */
+
+function openLetter() {
+
+  song.play()
+    .then(function() {
+
+      musicPlaying =
+        true;
+
+      musicButton.textContent =
+        "🔊";
+
+    })
+    .catch(function() {
+
+      console.log(
+        "La lecture automatique a été bloquée."
+      );
+
+    });
+
+
+  showPage(
+    "page2"
+  );
+
+
+  createHeartBurst();
+
+}
+
+
+/* =========================
+   MUSIQUE ON/OFF
+========================= */
+
+function toggleMusic() {
+
+  if (musicPlaying) {
+
+    song.pause();
+
+    musicPlaying =
+      false;
+
+    musicButton.textContent =
+      "🔇";
+
+  } else {
+
+    song.play()
+      .then(function() {
+
+        musicPlaying =
+          true;
+
+        musicButton.textContent =
+          "🔊";
+
+      });
+
+  }
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showPage(
+  pageId
+) {
+
+  const pages =
+    document.querySelectorAll(
+      ".page"
+    );
+
+
+  pages.forEach(
+    function(page) {
+
+      page.classList.remove(
+        "active"
+      );
+
+    }
+  );
+
+
+  const target =
+    document.getElementById(
+      pageId
+    );
+
+
+  if (target) {
+
+    target.classList.add(
+      "active"
+    );
+
+  }
+
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+}
+
+
+/* =========================
+   PARDON
+========================= */
+
+function forgive() {
+
+  showPage(
+    "page3"
+  );
+
+  createHeartBurst();
+
+}
+
+
+/* =========================
+   REFUS PARDON
+========================= */
+
+function notForgive() {
+
+  const message =
+    document.getElementById(
+      "forgiveMessage"
+    );
+
+
+  message.style.display =
+    "block";
+
+}
+
+
+/* =========================
+   JOURNÉE
+========================= */
+
+function acceptDate() {
+
+  showPage(
+    "page4"
+  );
+
+}
+
+
+function declineDate() {
+
+  const message =
+    document.getElementById(
+      "dateMessage"
+    );
+
+
+  message.style.display =
+    "block";
+
+}
+
+
+/* =========================
+   CHOIX DU JOUR
+========================= */
+
+function chooseDay(
+  day
+) {
+
+  showPage(
+    "page5"
+  );
+
+
+  setTimeout(
+    function() {
+
+      alert(
+        "Notre journée chill est prévue pour " +
+        day +
+        " ❤️"
+      );
+
+    },
+    500
+  );
+
+}
+
+
+/* =========================
+   COEURS DE FOND
+========================= */
+
+function createBackgroundHearts() {
+
+  const container =
+    document.getElementById(
+      "hearts"
+    );
+
+
+  const symbols = [
+    "♡",
+    "♥",
+    "❤"
+  ];
+
+
+  for (
+    let i = 0;
+    i < 18;
+    i++
+  ) {
+
+    const heart =
+      document.createElement(
+        "div"
+      );
+
+
+    heart.className =
+      "heart";
+
+
+    heart.textContent =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
+
+
+    heart.style.left =
+      Math.random() *
+      100 +
+      "%";
+
+
+    heart.style.fontSize =
+      (
+        18 +
+        Math.random() *
+        25
+      ) +
+      "px";
+
+
+    heart.style.animationDuration =
+      (
+        8 +
+        Math.random() *
+        10
+      ) +
+      "s";
+
+
+    heart.style.animationDelay =
+      Math.random() *
+      10 +
+      "s";
+
+
+    container.appendChild(
+      heart
+    );
+
+  }
+
+}
+
+
+/* =========================
+   EXPLOSION DE COEURS
+========================= */
+
+function createHeartBurst() {
+
+  const symbols = [
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💝"
+  ];
+
+
+  for (
+    let i = 0;
+    i < 20;
+    i++
+  ) {
+
+    const heart =
+      document.createElement(
+        "div"
+      );
+
+
+    heart.textContent =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
+
+
+    heart.style.position =
+      "fixed";
+
+
+    heart.style.left =
+      Math.random() *
+      100 +
+      "vw";
+
+
+    heart.style.top =
+      Math.random() *
+      100 +
+      "vh";
+
+
+    heart.style.fontSize =
+      "25px";
+
+
+    heart.style.zIndex =
+      "100";
+
+
+    heart.style.pointerEvents =
+      "none";
+
+
+    heart.style.transition =
+      "all 1.5s ease";
+
+
+    document.body.appendChild(
+      heart
+    );
+
+
+    setTimeout(
+      function() {
+
+        heart.style.transform =
+          "translateY(-150px) scale(1.5)";
+
+
+        heart.style.opacity =
+          "0";
+
+      },
+      50
+    );
+
+
+    setTimeout(
+      function() {
+
+        heart.remove();
+
+      },
+      1600
+    );
+
+  }
+
+}
+
+
+/* =========================
+   INITIALISATION
+========================= */
+
+createBackgroundHearts();
+
+</script>
+
+
+</body>
+
+</html>
